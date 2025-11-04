@@ -5,7 +5,7 @@
       <Title>TestingP</Title>
       <ExtendedMode>true</ExtendedMode>
       <RomFsInfo>
-        <Root>C:\Users\Usuario\Documents\UnityProjects\TEST1\Temp\StagingArea\RomFS</Root>
+        <Root>C:\Users\Usuario\Documents\GitHub\ProyectoMultimedia\TEST1\Temp\StagingArea\RomFS</Root>
         <Files>
           <Name>\Data\globalgamemanagers</Name>
           <Name>\Data\globalgamemanagers.assets</Name>
@@ -22,7 +22,7 @@
       </RomFsInfo>
       <CodeInfo>
         <Compressed>false</Compressed>
-        <OriginalSize>22.872.064 byte</OriginalSize>
+        <OriginalSize>22.888.448 byte</OriginalSize>
       </CodeInfo>
     </ContentsInfo>
   </Contents>
