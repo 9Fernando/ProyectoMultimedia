@@ -54,6 +54,7 @@
      <Compile Include="Assets\orbitauto.cs" />
      <Compile Include="Assets\sparkle.cs" />
      <Compile Include="Assets\sparkledestroy.cs" />
+     <Compile Include="Assets\sparkleset.cs" />
      <Compile Include="Assets\sparklespawn.cs" />
      <None Include="Assets\SkyboxExample\3DS_Skybox.shader" />
      <None Include="Assets\TerrainExample\TerrainN3DS.shader" />
