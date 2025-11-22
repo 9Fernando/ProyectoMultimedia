@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: b2a4a3122723ba548ab48fe590b5a93d
+timeCreated: 1763827361
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BaseGorro
+    100002: Cannon
+    100004: DiamondSword_obj_cleaner_materialmerger_gles
+    100006: Espada
+    100008: Halo
+    100010: Helice
+    100012: Materials
+    100014: Meshes
+    100016: Object_0
+    100018: Ojo1
+    100020: Ojo2
+    100022: //RootNode
+    100024: Sketchfab_model
+    100026: Slime
+    100028: TopGorro
+    100030: TuboGorro
+    400000: BaseGorro
+    400002: Cannon
+    400004: DiamondSword_obj_cleaner_materialmerger_gles
+    400006: Espada
+    400008: Halo
+    400010: Helice
+    400012: Materials
+    400014: Meshes
+    400016: Object_0
+    400018: Ojo1
+    400020: Ojo2
+    400022: //RootNode
+    400024: Sketchfab_model
+    400026: Slime
+    400028: TopGorro
+    400030: TuboGorro
+    2300000: BaseGorro
+    2300002: Cannon
+    2300004: Halo
+    2300006: Helice
+    2300008: Object_0
+    2300010: Slime
+    2300012: TopGorro
+    2300014: TuboGorro
+    3300000: BaseGorro
+    3300002: Cannon
+    3300004: Halo
+    3300006: Helice
+    3300008: Object_0
+    3300010: Slime
+    3300012: TopGorro
+    3300014: TuboGorro
+    4300000: BaseGorro
+    4300002: Cannon
+    4300004: Object_0
+    4300006: Halo
+    4300008: Helice
+    4300010: Ojo1
+    4300012: Ojo2
+    4300014: Slime
+    4300016: TopGorro
+    4300018: TuboGorro
+    7400000: Espada|EspadaAnim
+    7400002: Espada|HeliceAnim
+    7400004: Espada|MaterialsAction
+    7400006: Espada|sceneAction
+    7400008: Halo|EspadaAnim
+    7400010: Halo|HeliceAnim
+    7400012: Halo|MaterialsAction
+    7400014: Halo|sceneAction
+    7400016: Helice|EspadaAnim
+    7400018: Helice|HeliceAnim
+    7400020: Helice|MaterialsAction
+    7400022: Helice|sceneAction
+    7400024: Materials|EspadaAnim
+    7400026: Materials|HeliceAnim
+    7400028: Materials|MaterialsAction
+    7400030: Materials|sceneAction
+    7400032: Meshes|EspadaAnim
+    7400034: Meshes|HeliceAnim
+    7400036: Meshes|MaterialsAction
+    7400038: Meshes|sceneAction
+    9500000: //RootNode
+    13700000: Ojo1
+    13700002: Ojo2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

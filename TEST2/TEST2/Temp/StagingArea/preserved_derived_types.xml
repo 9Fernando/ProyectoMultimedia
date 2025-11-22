@@ -1,0 +1,13 @@
+<linker>
+<assembly fullname="Assembly-CSharp">
+<type fullname="GamepadScript" preserve="all"/>
+<type fullname="Tilt" preserve="all"/>
+<type fullname="Tumble" preserve="all"/>
+<type fullname="Rotate" preserve="all"/>
+<type fullname="followbehind" preserve="all"/>
+<type fullname="orbitauto" preserve="all"/>
+<type fullname="sparkle" preserve="all"/>
+<type fullname="sparkledestroy" preserve="all"/>
+<type fullname="sparkleset" preserve="all"/>
+</assembly>
+</linker>
