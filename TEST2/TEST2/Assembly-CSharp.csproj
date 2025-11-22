@@ -50,6 +50,7 @@
      <Compile Include="Assets\SkyboxExample\Tilt.cs" />
      <Compile Include="Assets\SkyboxExample\Tumble.cs" />
      <Compile Include="Assets\TerrainExample\Rotate.cs" />
+     <Compile Include="Assets\floorscript.cs" />
      <Compile Include="Assets\followbehind.cs" />
      <Compile Include="Assets\orbitauto.cs" />
      <Compile Include="Assets\sparkle.cs" />

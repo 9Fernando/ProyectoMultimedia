@@ -112,4 +112,14 @@ public class orbitauto : MonoBehaviour
 		targetLocalOffset.y = Mathf.Clamp(targetLocalOffset.y, minHeight, maxHeight);
 		targetLocalOffset.x = Mathf.Clamp(targetLocalOffset.x, -localMoveRadius, localMoveRadius);
 	}
+
+	public void SetHeightLimits(float newMin, float newMax)
+	{
+		minHeight = newMin;
+		maxHeight = newMax;
+
+		// Asegurarse de que el offset actual respete los nuevos límites
+		targetLocalOffset.y = Mathf.Clamp(targetLocalOffset.y, minHeight, maxHeight);
+		localOffset.y = Mathf.Clamp(localOffset.y, minHeight, maxHeight);
+	}
 }
