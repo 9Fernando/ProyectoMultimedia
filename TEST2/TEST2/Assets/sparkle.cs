@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class sparkle : MonoBehaviour {
+	public GameObject apoyoViga;  // El objeto de la viga asociada
+
 	public void DestroySparkle() {
-		// Efecto simple al destruir (puedes cambiarlo luego)
+
+		// Desactivar el apoyo si existe
+		if (apoyoViga != null)
+			apoyoViga.SetActive(false);
+
+		// Destruir este brillo
 		Destroy(gameObject);
 	}
-
 }

@@ -28,14 +28,14 @@
   .ver 0:0:0:0
 }
 .module 'Assembly-CSharp.dll'
-// MVID: {F3546DD9-DBAC-4E46-9837-4E53163EB635}
+// MVID: {21622672-DDC2-4D53-BE24-747F53BA04D7}
 .custom instance void [mscorlib]System.Security.UnverifiableCodeAttribute::.ctor() = ( 01 00 00 00 ) 
 .imagebase 0x00400000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x01300000
+// Image base: 0x02780000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -998,6 +998,7 @@
 .class public auto ansi beforefieldinit sparkle
        extends [UnityEngine]UnityEngine.MonoBehaviour
 {
+  .field public class [UnityEngine]UnityEngine.GameObject apoyoViga
   .method public hidebysig specialname rtspecialname 
           instance void  .ctor() cil managed
   {
@@ -1011,12 +1012,23 @@
   .method public hidebysig instance void 
           DestroySparkle() cil managed
   {
-    // Code size       12 (0xc)
+    // Code size       41 (0x29)
     .maxstack  8
     IL_0000:  ldarg.0
-    IL_0001:  call       instance class [UnityEngine]UnityEngine.GameObject [UnityEngine]UnityEngine.Component::get_gameObject()
-    IL_0006:  call       void [UnityEngine]UnityEngine.Object::Destroy(class [UnityEngine]UnityEngine.Object)
-    IL_000b:  ret
+    IL_0001:  ldfld      class [UnityEngine]UnityEngine.GameObject sparkle::apoyoViga
+    IL_0006:  ldnull
+    IL_0007:  call       bool [UnityEngine]UnityEngine.Object::op_Inequality(class [UnityEngine]UnityEngine.Object,
+                                                                             class [UnityEngine]UnityEngine.Object)
+    IL_000c:  brfalse    IL_001d
+
+    IL_0011:  ldarg.0
+    IL_0012:  ldfld      class [UnityEngine]UnityEngine.GameObject sparkle::apoyoViga
+    IL_0017:  ldc.i4.0
+    IL_0018:  callvirt   instance void [UnityEngine]UnityEngine.GameObject::SetActive(bool)
+    IL_001d:  ldarg.0
+    IL_001e:  call       instance class [UnityEngine]UnityEngine.GameObject [UnityEngine]UnityEngine.Component::get_gameObject()
+    IL_0023:  call       void [UnityEngine]UnityEngine.Object::Destroy(class [UnityEngine]UnityEngine.Object)
+    IL_0028:  ret
   } // end of method sparkle::DestroySparkle
 
 } // end of class sparkle

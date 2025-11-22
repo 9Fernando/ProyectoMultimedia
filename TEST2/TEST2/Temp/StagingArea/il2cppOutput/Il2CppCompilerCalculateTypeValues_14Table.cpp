@@ -179,6 +179,10 @@ extern const int32_t g_FieldOffsetTable1428[13] =
 	orbitauto_t885203431::get_offset_of_targetLocalOffset_14(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1429 = { sizeof (sparkle_t1095621192), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1429[1] = 
+{
+	sparkle_t1095621192::get_offset_of_apoyoViga_2(),
+};
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1430 = { sizeof (sparkledestroy_t1557363358), -1, 0, 0 };
 extern const int32_t g_FieldOffsetTable1430[1] = 
 {

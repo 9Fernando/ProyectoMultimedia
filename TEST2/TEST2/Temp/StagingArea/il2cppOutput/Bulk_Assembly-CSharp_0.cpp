@@ -282,6 +282,10 @@ extern "C"  float Vector3_get_magnitude_m206834744 (Vector3_t3722313464 * __this
 extern "C"  Vector3_t3722313464  Vector3_get_zero_m1640475482 (Il2CppObject * __this /* static, unused */, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void UnityEngine.Transform::LookAt(UnityEngine.Vector3)
 extern "C"  void Transform_LookAt_m1387448642 (Transform_t3600365921 * __this, Vector3_t3722313464  p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
+extern "C"  bool Object_op_Inequality_m1920811489 (Il2CppObject * __this /* static, unused */, Object_t631007953 * p0, Object_t631007953 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.Void UnityEngine.GameObject::SetActive(System.Boolean)
+extern "C"  void GameObject_SetActive_m3735894026 (GameObject_t1113636619 * __this, bool p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // UnityEngine.GameObject UnityEngine.Component::get_gameObject()
 extern "C"  GameObject_t1113636619 * Component_get_gameObject_m2648350745 (Component_t1923634451 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void UnityEngine.Object::Destroy(UnityEngine.Object)
@@ -298,12 +302,8 @@ extern "C"  bool Physics_Raycast_m3906114327 (Il2CppObject * __this /* static, u
 extern "C"  Collider_t1773347010 * RaycastHit_get_collider_m1442240336 (RaycastHit_t1056001966 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // !!0 UnityEngine.Component::GetComponent<sparkle>()
 #define Component_GetComponent_Tissparkle_t1095621192_m562432354(__this, method) ((  sparkle_t1095621192 * (*) (Component_t1923634451 *, const MethodInfo*))Component_GetComponent_TisIl2CppObject_m2735705429_gshared)(__this, method)
-// System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
-extern "C"  bool Object_op_Inequality_m1920811489 (Il2CppObject * __this /* static, unused */, Object_t631007953 * p0, Object_t631007953 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void sparkle::DestroySparkle()
 extern "C"  void sparkle_DestroySparkle_m2310199349 (sparkle_t1095621192 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void UnityEngine.GameObject::SetActive(System.Boolean)
-extern "C"  void GameObject_SetActive_m3735894026 (GameObject_t1113636619 * __this, bool p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // UnityEngine.Transform UnityEngine.GameObject::get_transform()
 extern "C"  Transform_t3600365921 * GameObject_get_transform_m393750976 (GameObject_t1113636619 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Collections.IEnumerator UnityEngine.Transform::GetEnumerator()
@@ -970,9 +970,24 @@ extern "C"  void sparkle_DestroySparkle_m2310199349 (sparkle_t1095621192 * __thi
 	}
 	StackTraceSentry _stackTraceSentry(sparkle_DestroySparkle_m2310199349_MethodInfo_var);
 	{
-		GameObject_t1113636619 * L_0 = Component_get_gameObject_m2648350745(__this, /*hidden argument*/NULL);
+		GameObject_t1113636619 * L_0 = __this->get_apoyoViga_2();
 		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
-		Object_Destroy_m2752645118(NULL /*static, unused*/, L_0, /*hidden argument*/NULL);
+		bool L_1 = Object_op_Inequality_m1920811489(NULL /*static, unused*/, L_0, (Object_t631007953 *)NULL, /*hidden argument*/NULL);
+		if (!L_1)
+		{
+			goto IL_001d;
+		}
+	}
+	{
+		GameObject_t1113636619 * L_2 = __this->get_apoyoViga_2();
+		GameObject_SetActive_m3735894026(L_2, (bool)0, /*hidden argument*/NULL);
+	}
+
+IL_001d:
+	{
+		GameObject_t1113636619 * L_3 = Component_get_gameObject_m2648350745(__this, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Object_t631007953_il2cpp_TypeInfo_var);
+		Object_Destroy_m2752645118(NULL /*static, unused*/, L_3, /*hidden argument*/NULL);
 		return;
 	}
 }
