@@ -83,6 +83,7 @@ ModelImporter:
     7400034: Meshes|HeliceAnim
     7400036: Meshes|MaterialsAction
     7400038: Meshes|sceneAction
+    7400040: Espada|sceneAction (1)
     9500000: //RootNode
     13700000: Ojo1
     13700002: Ojo2
@@ -108,7 +109,1228 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Espada|sceneAction (1)
+      takeName: Espada|sceneAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: PausarAnimacion
+        data: PausarAnimacion
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.19366197
+        functionName: PausarAnimacion
+        data: PausarAnimacion
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.43309858
+        functionName: PausarAnimacion
+        data: PausarAnimacion
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Espada|HeliceAnim
+      takeName: Espada|HeliceAnim
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Espada|MaterialsAction
+      takeName: Espada|MaterialsAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Espada|sceneAction
+      takeName: Espada|sceneAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Halo|EspadaAnim
+      takeName: Halo|EspadaAnim
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Halo|HeliceAnim
+      takeName: Halo|HeliceAnim
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Halo|MaterialsAction
+      takeName: Halo|MaterialsAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Halo|sceneAction
+      takeName: Halo|sceneAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Helice|EspadaAnim
+      takeName: Helice|EspadaAnim
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Helice|HeliceAnim
+      takeName: Helice|HeliceAnim
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Helice|MaterialsAction
+      takeName: Helice|MaterialsAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Helice|sceneAction
+      takeName: Helice|sceneAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Materials|EspadaAnim
+      takeName: Materials|EspadaAnim
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Materials|HeliceAnim
+      takeName: Materials|HeliceAnim
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Materials|MaterialsAction
+      takeName: Materials|MaterialsAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Materials|sceneAction
+      takeName: Materials|sceneAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Meshes|EspadaAnim
+      takeName: Meshes|EspadaAnim
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Meshes|HeliceAnim
+      takeName: Meshes|HeliceAnim
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Meshes|MaterialsAction
+      takeName: Meshes|MaterialsAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Meshes|sceneAction
+      takeName: Meshes|sceneAction
+      firstFrame: 0
+      lastFrame: 138
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BaseGorro
+        weight: 1
+      - path: Cannon
+        weight: 1
+      - path: Espada
+        weight: 1
+      - path: Espada/Materials
+        weight: 1
+      - path: Espada/Meshes
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles
+        weight: 1
+      - path: Espada/Meshes/Sketchfab_model/DiamondSword_obj_cleaner_materialmerger_gles/Object_0
+        weight: 1
+      - path: Halo
+        weight: 1
+      - path: Helice
+        weight: 1
+      - path: Ojo1
+        weight: 1
+      - path: Ojo2
+        weight: 1
+      - path: Slime
+        weight: 1
+      - path: TopGorro
+        weight: 1
+      - path: TuboGorro
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

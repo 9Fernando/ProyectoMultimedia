@@ -13,6 +13,9 @@ public class floorscript : MonoBehaviour
 	[Header("Jugador con orbitauto")]
 	public orbitauto playerOrbitScript;
 
+	[Header("Opcional: Solo para el ÚLTIMO piso")]
+	public finalcinematic cinematicController;
+
 	[Header("Nuevos límites de altura al destruir esta base")]
 	public float newMinHeight = 0f;
 	public float newMaxHeight = 5f;
@@ -42,6 +45,12 @@ public class floorscript : MonoBehaviour
 			if (playerOrbitScript != null)
 			{
 				playerOrbitScript.SetHeightLimits(newMinHeight, newMaxHeight);
+			}
+
+			// Si este piso tiene cinemática, la ejecuta
+			if (cinematicController != null)
+			{
+				cinematicController.StartCinematic();
 			}
 		}
 	}
