@@ -16,4 +16,14 @@ public class playeranimations : MonoBehaviour {
 			print("¡Falta asignar el CinematicManager en el script del Player!");
 		}
 	}
+
+	public void EventoFinAnimacion()
+	{
+		print("¡Puente recibió fin de animación!"); 
+
+		if (cinematicManager != null)
+		{
+			cinematicManager.EventoFinAnimacion();
+		}
+	}
 }
