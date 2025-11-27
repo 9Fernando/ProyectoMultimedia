@@ -11,8 +11,15 @@
           <Name>\Data\globalgamemanagers.assets</Name>
           <Name>\Data\level0</Name>
           <Name>\Data\level0.resS</Name>
+          <Name>\Data\level1</Name>
+          <Name>\Data\level1.resS</Name>
+          <Name>\Data\level2</Name>
+          <Name>\Data\level2.resS</Name>
           <Name>\Data\sharedassets0.assets</Name>
-          <Name>\Data\sharedassets0.assets.resS</Name>
+          <Name>\Data\sharedassets1.assets</Name>
+          <Name>\Data\sharedassets1.assets.resS</Name>
+          <Name>\Data\sharedassets2.assets</Name>
+          <Name>\Data\sharedassets2.assets.resS</Name>
           <Name>\Data\Managed\Metadata\global-metadata.dat</Name>
           <Name>\Data\Managed\Resources\mscorlib.dll-resources.dat</Name>
           <Name>\Data\Resources\unity default resources</Name>
@@ -21,7 +28,7 @@
       </RomFsInfo>
       <CodeInfo>
         <Compressed>false</Compressed>
-        <OriginalSize>22.720.512 byte</OriginalSize>
+        <OriginalSize>22.728.704 byte</OriginalSize>
       </CodeInfo>
     </ContentsInfo>
   </Contents>

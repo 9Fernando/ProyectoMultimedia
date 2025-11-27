@@ -53,11 +53,13 @@
      <Compile Include="Assets\finalcinematic.cs" />
      <Compile Include="Assets\floorscript.cs" />
      <Compile Include="Assets\followbehind.cs" />
+     <Compile Include="Assets\introcontroller.cs" />
      <Compile Include="Assets\orbitauto.cs" />
      <Compile Include="Assets\playeranimations.cs" />
      <Compile Include="Assets\sparkle.cs" />
      <Compile Include="Assets\sparkledestroy.cs" />
      <Compile Include="Assets\sparkleset.cs" />
+     <Compile Include="Assets\titlemenucontroller.cs" />
      <None Include="Assets\SkyboxExample\3DS_Skybox.shader" />
      <None Include="Assets\TerrainExample\TerrainN3DS.shader" />
      <None Include="Assets\TerrainExample\ReadMe.txt" />

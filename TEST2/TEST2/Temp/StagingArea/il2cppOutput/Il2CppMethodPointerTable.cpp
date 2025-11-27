@@ -8870,6 +8870,9 @@ extern "C" void Resources_GetBuiltinResource_m629864230 ();
 extern "C" void Scene_get_handle_m1480030146_AdjustorThunk ();
 extern "C" void Scene_GetHashCode_m42646907_AdjustorThunk ();
 extern "C" void Scene_Equals_m3811894426_AdjustorThunk ();
+extern "C" void SceneManager_LoadScene_m3660838673 ();
+extern "C" void SceneManager_LoadScene_m752772171 ();
+extern "C" void SceneManager_LoadSceneAsyncNameIndexInternal_m756833036 ();
 extern "C" void SceneManager_Internal_SceneLoaded_m4023393011 ();
 extern "C" void SceneManager_Internal_SceneUnloaded_m2496246859 ();
 extern "C" void SceneManager_Internal_ActiveSceneChanged_m1220784726 ();
@@ -10742,6 +10745,11 @@ extern "C" void GamepadScript__ctor_m3695667082 ();
 extern "C" void GamepadScript_Start_m1921299790 ();
 extern "C" void GamepadScript_OnGUI_m3105478593 ();
 extern "C" void GamepadScript_Label_m3403871338 ();
+extern "C" void introcontroller__ctor_m4015798500 ();
+extern "C" void introcontroller_Start_m658388922 ();
+extern "C" void introcontroller_Update_m2161911432 ();
+extern "C" void introcontroller_SiguienteFrase_m3073521216 ();
+extern "C" void introcontroller_EmpezarGameplay_m902085643 ();
 extern "C" void orbitauto__ctor_m854955745 ();
 extern "C" void orbitauto_Start_m2778807039 ();
 extern "C" void orbitauto_Update_m208556922 ();
@@ -10763,9 +10771,11 @@ extern "C" void sparkleset_Update_m1554293546 ();
 extern "C" void Tilt__ctor_m539153393 ();
 extern "C" void Tilt_Start_m1672382861 ();
 extern "C" void Tilt_Update_m676424603 ();
+extern "C" void titlemenucontroller__ctor_m3522837416 ();
+extern "C" void titlemenucontroller_Update_m2868302017 ();
 extern "C" void Tumble__ctor_m2892323195 ();
 extern "C" void Tumble_Update_m70135509 ();
-extern const Il2CppMethodPointer g_MethodPointers[10751] = 
+extern const Il2CppMethodPointer g_MethodPointers[10761] = 
 {
 	Locale_GetText_m3374010885,
 	Locale_GetText_m1601577974,
@@ -19623,6 +19633,9 @@ extern const Il2CppMethodPointer g_MethodPointers[10751] =
 	Scene_get_handle_m1480030146_AdjustorThunk,
 	Scene_GetHashCode_m42646907_AdjustorThunk,
 	Scene_Equals_m3811894426_AdjustorThunk,
+	SceneManager_LoadScene_m3660838673,
+	SceneManager_LoadScene_m752772171,
+	SceneManager_LoadSceneAsyncNameIndexInternal_m756833036,
 	SceneManager_Internal_SceneLoaded_m4023393011,
 	SceneManager_Internal_SceneUnloaded_m2496246859,
 	SceneManager_Internal_ActiveSceneChanged_m1220784726,
@@ -21495,6 +21508,11 @@ extern const Il2CppMethodPointer g_MethodPointers[10751] =
 	GamepadScript_Start_m1921299790,
 	GamepadScript_OnGUI_m3105478593,
 	GamepadScript_Label_m3403871338,
+	introcontroller__ctor_m4015798500,
+	introcontroller_Start_m658388922,
+	introcontroller_Update_m2161911432,
+	introcontroller_SiguienteFrase_m3073521216,
+	introcontroller_EmpezarGameplay_m902085643,
 	orbitauto__ctor_m854955745,
 	orbitauto_Start_m2778807039,
 	orbitauto_Update_m208556922,
@@ -21516,6 +21534,8 @@ extern const Il2CppMethodPointer g_MethodPointers[10751] =
 	Tilt__ctor_m539153393,
 	Tilt_Start_m1672382861,
 	Tilt_Update_m676424603,
+	titlemenucontroller__ctor_m3522837416,
+	titlemenucontroller_Update_m2868302017,
 	Tumble__ctor_m2892323195,
 	Tumble_Update_m70135509,
 };

@@ -7,11 +7,13 @@
 <type fullname="finalcinematic" preserve="all"/>
 <type fullname="floorscript" preserve="all"/>
 <type fullname="followbehind" preserve="all"/>
+<type fullname="introcontroller" preserve="all"/>
 <type fullname="orbitauto" preserve="all"/>
 <type fullname="playeranimations" preserve="all"/>
 <type fullname="sparkle" preserve="all"/>
 <type fullname="sparkledestroy" preserve="all"/>
 <type fullname="sparkleset" preserve="all"/>
+<type fullname="titlemenucontroller" preserve="all"/>
 </assembly>
 <assembly fullname="UnityEngine.UI">
 <type fullname="UnityEngine.EventSystems.EventSystem" preserve="all"/>

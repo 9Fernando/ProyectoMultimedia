@@ -90,11 +90,13 @@
 #include "AssemblyU2DCSharp_finalcinematic_U3CHundirTorreU3E3629411581.h"
 #include "AssemblyU2DCSharp_floorscript673188283.h"
 #include "AssemblyU2DCSharp_followbehind897630349.h"
+#include "AssemblyU2DCSharp_introcontroller2101425947.h"
 #include "AssemblyU2DCSharp_orbitauto885203431.h"
 #include "AssemblyU2DCSharp_playeranimations2585970510.h"
 #include "AssemblyU2DCSharp_sparkle1095621192.h"
 #include "AssemblyU2DCSharp_sparkledestroy1557363358.h"
 #include "AssemblyU2DCSharp_sparkleset4086226513.h"
+#include "AssemblyU2DCSharp_titlemenucontroller1397340880.h"
 
 
 
@@ -728,8 +730,15 @@ extern const int32_t g_FieldOffsetTable1687[5] =
 	followbehind_t897630349::get_offset_of_heightOffset_5(),
 	followbehind_t897630349::get_offset_of_smoothSpeed_6(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1688 = { sizeof (orbitauto_t885203431), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1688[13] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1688 = { sizeof (introcontroller_t2101425947), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1688[3] = 
+{
+	introcontroller_t2101425947::get_offset_of_textoDialogo_2(),
+	introcontroller_t2101425947::get_offset_of_frases_3(),
+	introcontroller_t2101425947::get_offset_of_indiceFrase_4(),
+};
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1689 = { sizeof (orbitauto_t885203431), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1689[13] = 
 {
 	orbitauto_t885203431::get_offset_of_villain_2(),
 	orbitauto_t885203431::get_offset_of_orbitRadius_3(),
@@ -745,27 +754,28 @@ extern const int32_t g_FieldOffsetTable1688[13] =
 	orbitauto_t885203431::get_offset_of_localOffset_13(),
 	orbitauto_t885203431::get_offset_of_targetLocalOffset_14(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1689 = { sizeof (playeranimations_t2585970510), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1689[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1690 = { sizeof (playeranimations_t2585970510), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1690[1] = 
 {
 	playeranimations_t2585970510::get_offset_of_cinematicManager_2(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1690 = { sizeof (sparkle_t1095621192), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1690[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1691 = { sizeof (sparkle_t1095621192), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1691[1] = 
 {
 	sparkle_t1095621192::get_offset_of_apoyoViga_2(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1691 = { sizeof (sparkledestroy_t1557363358), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1691[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1692 = { sizeof (sparkledestroy_t1557363358), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1692[1] = 
 {
 	sparkledestroy_t1557363358::get_offset_of_lowerCam_2(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1692 = { sizeof (sparkleset_t4086226513), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1692[2] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1693 = { sizeof (sparkleset_t4086226513), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1693[2] = 
 {
 	sparkleset_t4086226513::get_offset_of_sparkleSets_2(),
 	sparkleset_t4086226513::get_offset_of_currentSetIndex_3(),
 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1694 = { sizeof (titlemenucontroller_t1397340880), -1, 0, 0 };
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
