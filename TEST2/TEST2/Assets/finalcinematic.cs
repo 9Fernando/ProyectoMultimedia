@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.N3DS;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class finalcinematic : MonoBehaviour {
 	[Header("Referencias Escena")]
@@ -23,8 +25,32 @@ public class finalcinematic : MonoBehaviour {
 	public AudioClip sonidoFinal;
 
 	[Header("UI Imagen Final")]
-	public GameObject imagenPantallaSuperior; // Arrastra CanvasTop
-	public GameObject imagenPantallaInferior; // Arrastra CanvasBot
+	public GameObject imagenPantallaSuperior;
+	public GameObject imagenPantallaInferior;
+
+	[Header("Set Caída Infinita")]
+	public GameObject setCaidaFake;      // Objeto padre del set 2D
+	public Transform puntoSpawnCaida;    // Donde aparece el player en el set
+	public Camera camaraCaidaLateral;    // Cámara lateral del set
+
+	[Header("UI Pantalla Inferior Ascenso")]
+	public GameObject canvasInferiorAscenso;
+	public CanvasGroup canvasInferiorGroup;
+	public GameObject imagenAvisoLR;
+	public GameObject imagenAvisoTapa;
+
+	[Header("Configuración Parpadeo")]
+	public float velocidadParpadeo = 2.0f;
+	public float alfaMinimo = 0.2f;
+	public float alfaMaximo = 1.0f;
+	private Coroutine parpadeoRoutine;
+
+	[Header("UI Final Victoria")]
+	public GameObject canvasSuperiorFinal;      // Canvas de la pantalla superior
+	public CanvasGroup canvasSuperiorGroup;     // CanvasGroup del superior
+	public UnityEngine.UI.Image botonVolverTitle; // imagen/botón dentro del canvas inferior
+	public float duracionFadeBoton = 1.0f;
+	public sparkledestroy sparkleDestroyScript;
 
 	// Variables internas
 	private bool esperandoInput = false;
@@ -44,6 +70,9 @@ public class finalcinematic : MonoBehaviour {
 
 	public void StartCinematic()
 	{
+		if (sparkleDestroyScript != null)
+			sparkleDestroyScript.enabled = false;
+		
 		// Desactivar controles
 		playerOrbitScript.enabled = false;
 		cameraFollowScript.enabled = false;
@@ -51,7 +80,20 @@ public class finalcinematic : MonoBehaviour {
 		// Cambiar cámaras
 		upperCamGameplay.enabled = false;
 		upperCamCinematic.enabled = true;
-		upperCamCinematic.GetComponent<Camera>().enabled = true; // Asegurar componente
+		upperCamCinematic.GetComponent<Camera>().enabled = true;
+
+		// --- ACTIVAR CANVAS INFERIOR ---
+		if (canvasInferiorAscenso != null) 
+		{
+			canvasInferiorAscenso.SetActive(true);
+
+			// Si tenemos el grupo, iniciamos el fade
+			if (canvasInferiorGroup != null)
+			{
+				canvasInferiorGroup.alpha = 0f; // Asegurar que empieza invisible
+				StartCoroutine(FadeInCanvasInferior());
+			}
+		}
 
 		// Colocar cámara
 		if (puntoFijoCamaraAscenso != null)
@@ -61,6 +103,20 @@ public class finalcinematic : MonoBehaviour {
 		}
 
 		StartCoroutine(SecuenciaAscenso());
+	}
+
+	private IEnumerator FadeInCanvasInferior()
+	{
+		float duracion = 1.0f;
+		float t = 0f;
+
+		while (t < 1f)
+		{
+			t += Time.deltaTime / duracion;
+			canvasInferiorGroup.alpha = Mathf.Lerp(0f, 1f, t);
+			yield return null;
+		}
+		canvasInferiorGroup.alpha = 1f;
 	}
 
 	private IEnumerator SecuenciaAscenso()
@@ -96,11 +152,20 @@ public class finalcinematic : MonoBehaviour {
 	void Update()
 	{
 
-		// Tecla X: Saltar directamente al Ascenso (como si rompieras el último piso)
+		// Saltar directamente al Ascenso
 		if (Input.GetKeyDown(KeyCode.X))
 		{
 			print("DEBUG: Saltando a Cinemática de Ascenso");
 			StartCinematic();
+		}
+
+		if (Input.GetKeyDown(KeyCode.Y))
+		{
+			OnApplicationPause(true);   // Simular cierre
+		}
+		if (Input.GetKeyDown(KeyCode.B))
+		{
+			OnApplicationPause(false);  // Simular apertura
 		}
 
 		// Lógica QTE: Esperando L+R
@@ -124,6 +189,7 @@ public class finalcinematic : MonoBehaviour {
 		playerAnimator.SetFloat("VelocidadEspada", 0f);
 		esperandoInput = true;
 		print("Pausa QTE. Esperando L+R");
+		ActivarParpadeo(imagenAvisoLR);
 	}
 
 	// Llamado al pulsar L+R
@@ -132,6 +198,7 @@ public class finalcinematic : MonoBehaviour {
 		playerAnimator.SetFloat("VelocidadEspada", 1f);
 		esperandoInput = false;
 		etapaQTE++;
+		DetenerParpadeo();
 	}
 		
 	// Se ejecutará cuando termine toda la animación de la espada tras el último input
@@ -145,34 +212,94 @@ public class finalcinematic : MonoBehaviour {
 
 	public void IniciarCaidaHaciaTorre()
 	{
-		playerAnimator.enabled = false; 
-		StartCoroutine(SecuenciaCaida());
+		StartCoroutine(SecuenciaSaltoYCaida());
 	}
 
-	private IEnumerator SecuenciaCaida()
+	private IEnumerator SecuenciaSaltoYCaida()
 	{
-		float velocidadCaida = 15f;
-		Transform playerT = playerOrbitScript.transform;
+		// --- Salto hacia pantalla/torre ---
+		float tiempoSalto = 0.5f;
+		float t = 0;
+		Vector3 inicio = playerOrbitScript.transform.position;
+		Vector3 destino = inicio + (playerOrbitScript.transform.forward * 5f) + (Vector3.down * 1f); 
 
-		// Caer hasta el punto medio
-		while (Vector3.Distance(playerT.position, puntoMitadTorre.position) > 0.5f)
+		while (t < 1f)
 		{
-			playerT.position = Vector3.MoveTowards(playerT.position, puntoMitadTorre.position, velocidadCaida * Time.deltaTime);
-
-			// Opcional: Rotar hacia abajo para "clavar" la espada
-			playerT.LookAt(puntoSueloFinal.position); 
-
-			// Cámara sigue mirando
-			upperCamCinematic.transform.LookAt(playerT.position);
-
+			t += Time.deltaTime / tiempoSalto;
+			playerOrbitScript.transform.position = Vector3.Lerp(inicio, destino, t);
 			yield return null;
 		}
 
-		// Llegó al medio -> Esperar Tapa
+		yield return new WaitForSeconds(0.5f);
+
+		// --- Caída Infinita ---
+		print("Corte a Caída Infinita");
+
+		// Apagar cámara actual
+		upperCamCinematic.enabled = false;
+
+		// Encender set y cámara lateral
+		if (setCaidaFake != null) setCaidaFake.SetActive(true);
+		if (camaraCaidaLateral != null) camaraCaidaLateral.enabled = true;
+
+		// Teletransportar player al set
+		playerOrbitScript.transform.position = puntoSpawnCaida.position;
+		playerOrbitScript.transform.rotation = puntoSpawnCaida.rotation;
+
+		// Esperar un momento para que se vea la velocidad
+		yield return new WaitForSeconds(0.5f);
+
+		// --- Esperar Tapa ---
 		esperandoCierreTapa = true;
 		print("¡CIERRA LA TAPA AHORA!");
-
+		ActivarParpadeo(imagenAvisoTapa);
 	}
+
+	private IEnumerator AnimarParpadeoGradual(GameObject objetoConImagen)
+	{
+		Image imagen = objetoConImagen.GetComponent<Image>();
+		if (imagen == null) yield break;
+
+		objetoConImagen.SetActive(true);
+		imagen.transform.localScale = Vector3.one;
+
+		while (true)
+		{
+			float t = Mathf.PingPong(Time.time * velocidadParpadeo, 1.0f);
+			float alfaActual = Mathf.Lerp(alfaMinimo, alfaMaximo, t);
+
+			Color c = imagen.color;
+			c.a = alfaActual;
+			imagen.color = c;
+
+			yield return null;
+		}
+	}
+
+	private void ActivarParpadeo(GameObject objeto)
+	{
+		DetenerParpadeo();
+
+		if (objeto != null)
+		{
+			parpadeoRoutine = StartCoroutine(AnimarParpadeoGradual(objeto));
+		}
+	}
+
+	private void DetenerParpadeo()
+	{
+		if (parpadeoRoutine != null)
+		{
+			StopCoroutine(parpadeoRoutine);
+			parpadeoRoutine = null;
+		}
+
+		// Apagar ambas imágenes para limpiar
+		if (imagenAvisoLR != null) imagenAvisoLR.SetActive(false);
+		if (imagenAvisoTapa != null) imagenAvisoTapa.SetActive(false);
+	}
+
+
 
 	// Detecta suspensión (Sleep Mode)
 	void OnApplicationPause(bool pauseStatus)
@@ -184,13 +311,13 @@ public class finalcinematic : MonoBehaviour {
 				haCerradoTapa = true;
 				if (audioSource != null) {
 					audioSource.PlayOneShot(sonidoFinal);
-					// Intento de forzar que suene antes del corte
 				}
 			}
 			else if (pauseStatus == false) // Se ha reanudado (Tapa abierta)
 			{
 				if (haCerradoTapa)
 				{
+					DetenerParpadeo();
 					esperandoCierreTapa = false;
 					StartCoroutine(SecuenciaImagenYFinal());
 				}
@@ -200,6 +327,15 @@ public class finalcinematic : MonoBehaviour {
 
 	private IEnumerator SecuenciaImagenYFinal()
 	{
+		// --- LIMPIEZA DEL SET FAKE ---
+		if (setCaidaFake != null) setCaidaFake.SetActive(false);
+		if (camaraCaidaLateral != null) camaraCaidaLateral.enabled = false;
+
+		// Volver a encender la cámara cinemática para el final
+		upperCamCinematic.enabled = true;
+
+		if (canvasInferiorAscenso != null) canvasInferiorAscenso.SetActive(false);
+
 		// Mostrar Imágenes en ambas pantallas
 		if (imagenPantallaSuperior != null) imagenPantallaSuperior.SetActive(true);
 		if (imagenPantallaInferior != null) imagenPantallaInferior.SetActive(true);
@@ -211,16 +347,18 @@ public class finalcinematic : MonoBehaviour {
 		if (imagenPantallaSuperior != null) imagenPantallaSuperior.SetActive(false);
 		if (imagenPantallaInferior != null) imagenPantallaInferior.SetActive(false);
 
-		// AHORA SÍ, ejecutar el final (teletransporte y hundimiento)
+		if (canvasInferiorAscenso != null) canvasInferiorAscenso.SetActive(true);
+
 		FinalizarJuego();
 	}
 
 	private void FinalizarJuego()
 	{
+
 		// Teletransportar al suelo
 		playerOrbitScript.transform.position = puntoSueloFinal.position;
 
-		// Hacemos que mire hacia fuera.
+		// Hacemos que mire hacia fuera
 		playerOrbitScript.transform.LookAt(playerOrbitScript.transform.position + (playerOrbitScript.transform.position - torreEntera.transform.position));
 
 		// POSICIONAR CÁMARA enfrente del personaje, mirándole a la cara
@@ -241,11 +379,10 @@ public class finalcinematic : MonoBehaviour {
 		if (torreEntera == null) yield break;
 
 		float velocidadHundimiento = 5.0f;
-		float alturaObjetivo = -60f;
+		float alturaObjetivo = -45f;
 
 		print("Torre hundiéndose...");
 
-		// Mientras la torre siga por encima del objetivo...
 		while (torreEntera.transform.position.y > alturaObjetivo)
 		{
 			torreEntera.transform.Translate(Vector3.down * velocidadHundimiento * Time.deltaTime, Space.World);
@@ -261,7 +398,72 @@ public class finalcinematic : MonoBehaviour {
 		posFinal.y = alturaObjetivo;
 		torreEntera.transform.position = posFinal;
 
+		StartCoroutine(MostrarUIFinal());
+		StartCoroutine(FadeInBotonFinal());
+
 		print("FIN DEL JUEGO");
 	}
+
+	IEnumerator MostrarUIFinal()
+	{
+		float duracion = 1.0f;
+		float t = 0f;
+
+		// Activar canvas
+		if (canvasSuperiorFinal != null) canvasSuperiorFinal.SetActive(true);
+
+		// Asegurar alpha inicial 0
+		if (canvasSuperiorGroup != null) canvasSuperiorGroup.alpha = 0f;
+
+		while (t < 1f)
+		{
+			t += Time.deltaTime / duracion;
+			float a = Mathf.Lerp(0f, 1f, t);
+
+			if (canvasSuperiorGroup != null) canvasSuperiorGroup.alpha = a;
+
+			yield return null;
+		}
+
+		if (canvasSuperiorGroup != null) canvasSuperiorGroup.alpha = 1f;
+	}
+
+	IEnumerator FadeInBotonFinal()
+	{
+		if (botonVolverTitle == null)
+			yield break;
+
+		// Activar el objeto por si estaba desactivado
+		GameObject go = botonVolverTitle.gameObject;
+		go.SetActive(true);
+
+		// Empezar con alpha 0
+		Color c = botonVolverTitle.color;
+		c.a = 0f;
+		botonVolverTitle.color = c;
+
+		float t = 0f;
+
+		while (t < 1f)
+		{
+			t += Time.deltaTime / duracionFadeBoton;
+			float a = Mathf.Lerp(0f, 1f, t);
+
+			c.a = a;
+			botonVolverTitle.color = c;
+
+			yield return null;
+		}
+
+		// Asegurar alpha 1
+		c.a = 1f;
+		botonVolverTitle.color = c;
+	}
+
+	public void VolverAlTitulo()
+	{
+		SceneManager.LoadScene("titlescreen");
+	}
+
 
 }

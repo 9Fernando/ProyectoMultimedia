@@ -99,11 +99,11 @@ public class orbitauto : MonoBehaviour
 		Vector2 circlePad = UnityEngine.N3DS.GamePad.CirclePad;
 
 		// --- teclado/ascii/axes para testing en editor ---
-		float kx = Input.GetAxis("Horizontal"); // A/D, Left/Right 
-		float ky = Input.GetAxis("Vertical");   // W/S, Up/Down
+		//float kx = Input.GetAxis("Horizontal"); // A/D, Left/Right 
+		//float ky = Input.GetAxis("Vertical");   // W/S, Up/Down
 
-		//float kx = circlePad.x; // izquierda/derecha
-		//float ky = circlePad.y; // arriba/abajo
+		float kx = circlePad.x; // izquierda/derecha
+		float ky = circlePad.y; // arriba/abajo
 
 		// mover targetLocalOffset según el Circle Pad
 		targetLocalOffset += new Vector2(-kx, ky) * (localMoveSpeed * Time.deltaTime);

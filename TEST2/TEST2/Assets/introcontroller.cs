@@ -26,6 +26,13 @@ public class introcontroller : MonoBehaviour {
 	public Image displayTransmision; // El componente Image de la pantalla superior
 	public Sprite[] galeriaSprites;  // Arrastra aquí todas tus imágenes en orden
 
+	[Header("Typewriter")]
+	public float velocidadCaracter = 40f; // caracteres por segundo
+	public GameObject iconoContinuar;
+
+	private bool escribiendo = false;     // True mientras se está escribiendo una frase
+	private string fraseActualCompleta;   // Texto completo de la frase actual
+
 	private int indiceFrase = 0;
 	private bool esperandoFormulario = false;
 	private bool formularioCompletado = false;
@@ -57,8 +64,8 @@ public class introcontroller : MonoBehaviour {
 		}
 
 		// --- FASE DE DIÁLOGO NORMAL ---
-		// Detectar botón A avanzar (solo si NO estamos esperando formulario)
-		bool avanzar = Input.GetKeyDown(KeyCode.A);
+		// No dejamos avanzar mientras se está escribiendo
+		bool avanzar = !escribiendo && (Input.GetKeyDown(KeyCode.A));
 
 		if (avanzar)
 		{
@@ -87,7 +94,7 @@ public class introcontroller : MonoBehaviour {
 			else
 			{
 				// Fin de Parte 2 -> Ir al Gameplay
-				SceneManager.LoadScene("test2");
+				scenetransition.instancia.CambiarEscena("test2");
 			}
 		}
 	}
@@ -100,17 +107,17 @@ public class introcontroller : MonoBehaviour {
 
 		if (!esParte2) // PARTE 1 (Antes del formulario)
 		{
-			// Ejemplo:
-			if (indice == 1) return 1; // Frase 0 ("Buenos dias...") -> Sprite 0 (Ruido estático / Logo)
-			if (indice == 3) return 2; // Frase 1 ("Invasión...") -> Sprite 1 (Mapa invasión)
-			if (indice == 4) return 3; // Frase 4 ("D.R.O.N...") -> Sprite 2 (Logo DRON)
-			if (indice == 5) return 4; // Frase 4 ("D.R.O.N...") -> Sprite 2 (Logo DRON)
-			// Las frases 2 y 3 no cambian imagen, mantienen la anterior
+			if (indice == 1) return 1;
+			if (indice == 3) return 2;
+			if (indice == 4) return 3;
+			if (indice == 5) return 4;
 		}
 		else // PARTE 2 (Después del formulario)
 		{
-			if (indice == 0) return 3; // Frase 0 ("Gracias...") -> Sprite 3 (Tick verde / Presentador feliz)
-			if (indice == 1) return 4; // Frase 1 ("Joystick...") -> Sprite 4 (Dibujo Joystick)
+			if (indice == 0) return 5;
+			if (indice == 1) return 6;
+			if (indice == 3) return 7;
+
 		}
 
 		return -1; // -1 significa "No cambies la imagen, deja la que está"
@@ -118,7 +125,20 @@ public class introcontroller : MonoBehaviour {
 
 	void ActualizarTexto(string texto)
 	{
-		if(textoDialogo != null) textoDialogo.text = texto;
+		
+		fraseActualCompleta = texto;
+		if (textoDialogo != null)
+			textoDialogo.text = "";
+
+		// Al empezar una nueva frase:
+		escribiendo = true;
+
+		// Ocultar el icono de continuar mientras se escribe
+		if (iconoContinuar != null)
+			iconoContinuar.SetActive(false);
+
+		// Lanzar corrutina de escritura
+		StartCoroutine(TypewriterCoroutine());
 
 		// --- LÓGICA DE CAMBIO DE IMAGEN ---
 		int idSprite = ObtenerIndiceSpriteParaFrase(enParte2, indiceFrase);
@@ -132,11 +152,48 @@ public class introcontroller : MonoBehaviour {
 		}
 	}
 
+	IEnumerator TypewriterCoroutine()
+	{
+		if (textoDialogo == null) yield break;
+
+		textoDialogo.text = "";
+		int longitud = fraseActualCompleta.Length;
+		float t = 0f;
+		int indice = 0;
+
+		while (indice < longitud)
+		{
+			// Avance por caracteres según velocidad
+			t += Time.deltaTime * velocidadCaracter;
+			int nuevoIndice = Mathf.FloorToInt(t);
+
+			if (nuevoIndice != indice)
+			{
+				indice = Mathf.Clamp(nuevoIndice, 0, longitud);
+				textoDialogo.text = fraseActualCompleta.Substring(0, indice);
+			}
+
+			yield return null;
+		}
+
+		// Asegurar texto completo
+		textoDialogo.text = fraseActualCompleta;
+
+		escribiendo = false;
+
+		// Mostrar icono de continuar SOLO si no estamos en el momento del formulario
+		if (!esperandoFormulario && iconoContinuar != null)
+			iconoContinuar.SetActive(true);
+	}
+
 	// --- LÓGICA DEL FORMULARIO ---
 
 	IEnumerator MostrarFormulario()
 	{
 		esperandoFormulario = true; // Bloqueamos avance de texto
+
+		if (iconoContinuar != null)
+			iconoContinuar.SetActive(false);
 
 		// Animación simple: Subir formulario de -220 a 0
 		float tiempo = 0.5f;
@@ -154,6 +211,9 @@ public class introcontroller : MonoBehaviour {
 
 	void ProcesarFormulario()
 	{
+		if (formularioCompletado) 
+			return;
+		
 		bool pulsando = Input.GetMouseButton(0);
 
 		// JUGADOR PULSANDO
@@ -197,5 +257,32 @@ public class introcontroller : MonoBehaviour {
 		// Mostrar primera frase de la parte 2 automáticamente
 		ActualizarTexto(frasesParte2[0]);
 
+		StartCoroutine(OcultarFormulario());
+
 	}
+
+	IEnumerator OcultarFormulario()
+	{
+		// Bajamos formulario y relleno de su posición actual hasta y = -220
+		float duracion = 0.5f;
+		float t = 0f;
+
+		Vector2 inicioForm = formularioTransform.anchoredPosition;
+		Vector2 fin    = new Vector2(0f, -220f);
+
+		while (t < 1f)
+		{
+			t += Time.deltaTime / duracion;
+			float s = Mathf.SmoothStep(0f, 1f, t);
+
+			Vector2 pos = Vector2.Lerp(inicioForm, fin, s);
+
+			formularioTransform.anchoredPosition = pos;
+			rellenoTransform.anchoredPosition    = pos;
+
+			yield return null;
+		}
+
+	}
+
 }

@@ -103,6 +103,6 @@ public class titlemenucontroller : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 
 		// Cambiar escena
-		SceneManager.LoadScene("intro");
+		scenetransition.instancia.CambiarEscena("intro");
 	}
 }
