@@ -17,8 +17,10 @@
           <Name>\Data\level2.resS</Name>
           <Name>\Data\sharedassets0.assets</Name>
           <Name>\Data\sharedassets0.assets.resS</Name>
+          <Name>\Data\sharedassets0.resource</Name>
           <Name>\Data\sharedassets1.assets</Name>
           <Name>\Data\sharedassets1.assets.resS</Name>
+          <Name>\Data\sharedassets1.resource</Name>
           <Name>\Data\sharedassets2.assets</Name>
           <Name>\Data\sharedassets2.assets.resS</Name>
           <Name>\Data\sharedassets2.resource</Name>
@@ -30,7 +32,7 @@
       </RomFsInfo>
       <CodeInfo>
         <Compressed>false</Compressed>
-        <OriginalSize>22.757.376 byte</OriginalSize>
+        <OriginalSize>22.761.472 byte</OriginalSize>
       </CodeInfo>
     </ContentsInfo>
   </Contents>

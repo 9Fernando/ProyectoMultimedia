@@ -19,6 +19,10 @@ public class titlemenucontroller : MonoBehaviour {
 	public float velocidadEscala = 15.0f;
 	public float escalaMaxima = 1.2f;
 
+	[Header("Audio")]
+	public AudioSource audioSource;
+	public AudioClip sfxStart;
+
 	private bool haPresionadoStart = false;
 
 	void Update()
@@ -32,6 +36,9 @@ public class titlemenucontroller : MonoBehaviour {
 
 			if (pressStart)
 			{
+				if (audioSource != null && sfxStart != null)
+					audioSource.PlayOneShot(sfxStart);
+				
 				StartCoroutine(SecuenciaInicio());
 			}
 		}

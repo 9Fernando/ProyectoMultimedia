@@ -1,0 +1,7 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="finalcinematic">
+			<method name="VolverAlTitulo"/>
+		</type>
+	</assembly>
+</linker>

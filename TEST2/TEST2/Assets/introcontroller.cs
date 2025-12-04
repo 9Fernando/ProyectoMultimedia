@@ -30,6 +30,21 @@ public class introcontroller : MonoBehaviour {
 	public float velocidadCaracter = 40f; // caracteres por segundo
 	public GameObject iconoContinuar;
 
+	[Header("Audio Diálogo y Formulario")]
+	public AudioSource audioSourceIntro;
+	public AudioClip sfxLetra;
+	public AudioClip sfxCambioLinea;
+	public AudioClip sfxMostrarFormulario;
+	public AudioClip sfxRellenoSubiendo;
+	public AudioClip sfxRellenoBajando;
+	public AudioClip sfxFormularioOK;
+
+	[Header("Audio Música Intro")]
+	public AudioSource musicaIntro;
+
+	private enum EstadoSonidoRelleno { Ninguno, Subiendo, Bajando }
+	private EstadoSonidoRelleno estadoSonido = EstadoSonidoRelleno.Ninguno;
+
 	private bool escribiendo = false;     // True mientras se está escribiendo una frase
 	private string fraseActualCompleta;   // Texto completo de la frase actual
 
@@ -75,6 +90,13 @@ public class introcontroller : MonoBehaviour {
 
 	void AvanzarDialogo()
 	{
+
+		if (escribiendo) return;
+
+		// SFX de cambio de línea
+		if (audioSourceIntro != null && sfxCambioLinea != null)
+			audioSourceIntro.PlayOneShot(sfxCambioLinea);
+
 		string[] frasesActuales = enParte2 ? frasesParte2 : frasesParte1;
 
 		// Si aún quedan frases en el bloque actual
@@ -160,37 +182,50 @@ public class introcontroller : MonoBehaviour {
 		int longitud = fraseActualCompleta.Length;
 		float t = 0f;
 		int indice = 0;
+		//int letrasDesdeUltimoSonido = 0;
 
 		while (indice < longitud)
 		{
-			// Avance por caracteres según velocidad
 			t += Time.deltaTime * velocidadCaracter;
 			int nuevoIndice = Mathf.FloorToInt(t);
 
 			if (nuevoIndice != indice)
 			{
+				//int anterior = indice;
 				indice = Mathf.Clamp(nuevoIndice, 0, longitud);
 				textoDialogo.text = fraseActualCompleta.Substring(0, indice);
+
+				//letrasDesdeUltimoSonido += (indice - anterior);
+
+				// SFX por letra
+				//if (letrasDesdeUltimoSonido >= 4)
+				//{
+				//	if (audioSourceIntro != null && sfxLetra != null) {
+				//		audioSourceIntro.PlayOneShot (sfxLetra);
+				//		letrasDesdeUltimoSonido = 0;
+				//	}
+				//}
 			}
 
 			yield return null;
 		}
 
-		// Asegurar texto completo
 		textoDialogo.text = fraseActualCompleta;
-
 		escribiendo = false;
 
-		// Mostrar icono de continuar SOLO si no estamos en el momento del formulario
 		if (!esperandoFormulario && iconoContinuar != null)
 			iconoContinuar.SetActive(true);
 	}
+
 
 	// --- LÓGICA DEL FORMULARIO ---
 
 	IEnumerator MostrarFormulario()
 	{
 		esperandoFormulario = true; // Bloqueamos avance de texto
+
+		if (audioSourceIntro != null && sfxMostrarFormulario != null)
+			audioSourceIntro.PlayOneShot(sfxMostrarFormulario);
 
 		if (iconoContinuar != null)
 			iconoContinuar.SetActive(false);
@@ -229,6 +264,15 @@ public class introcontroller : MonoBehaviour {
 			{
 				CompletarFormulario();
 			}
+
+			if (alturaRellenoActual < 0) 
+			{
+				if (estadoSonido != EstadoSonidoRelleno.Subiendo)
+				{
+					CambiarSonidoRelleno(EstadoSonidoRelleno.Subiendo);
+				}
+			}
+				
 		}
 		// JUGADOR NO PULSA
 		else
@@ -236,21 +280,70 @@ public class introcontroller : MonoBehaviour {
 			// Solo bajamos si está por encima del mínimo (-220)
 			if (alturaRellenoActual > -220f)
 			{
+				if (estadoSonido != EstadoSonidoRelleno.Bajando)
+				{
+					CambiarSonidoRelleno(EstadoSonidoRelleno.Bajando);
+				}
+
 				// Bajamos un poco más rápido que la subida
 				alturaRellenoActual -= velocidadRelleno * 1.5f * Time.deltaTime;
 
 				if (alturaRellenoActual < -220f) alturaRellenoActual = -220f;
 			}
+				
 		}
 
 		// Aplicar la posición visualmente (siempre)
 		rellenoTransform.anchoredPosition = new Vector2(0, alturaRellenoActual);
 	}
 
+	void CambiarSonidoRelleno(EstadoSonidoRelleno nuevoEstado)
+	{
+		if (audioSourceIntro == null) return;
+
+		// Parar lo que hubiera
+		audioSourceIntro.Stop();
+
+		switch (nuevoEstado)
+		{
+		case EstadoSonidoRelleno.Subiendo:
+			if (sfxRellenoSubiendo != null)
+			{
+				audioSourceIntro.clip = sfxRellenoSubiendo;
+				audioSourceIntro.loop = true;
+				audioSourceIntro.Play();
+			}
+			break;
+
+		case EstadoSonidoRelleno.Bajando:
+			if (sfxRellenoBajando != null)
+			{
+				audioSourceIntro.clip = sfxRellenoBajando;
+				audioSourceIntro.loop = true;
+				audioSourceIntro.Play();
+			}
+			break;
+
+		default:
+			audioSourceIntro.clip = null;
+			break;
+		}
+
+		estadoSonido = nuevoEstado;
+	}
+
+
 	void CompletarFormulario()
 	{
 		formularioCompletado = true;
 		esperandoFormulario = false; // Desbloqueamos texto
+
+		CambiarSonidoRelleno(EstadoSonidoRelleno.Ninguno);
+
+		// Sonido de éxito
+		if (audioSourceIntro != null && sfxFormularioOK != null)
+			audioSourceIntro.PlayOneShot(sfxFormularioOK);
+		
 		enParte2 = true;             // Cambiamos al set de frases 2
 		indiceFrase = 0;             // Reiniciamos índice para el nuevo set
 
