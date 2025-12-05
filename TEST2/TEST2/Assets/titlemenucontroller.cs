@@ -9,11 +9,17 @@ public class titlemenucontroller : MonoBehaviour {
 
 	[Header("UI Referencias")]
 	public Image imagenTextoStart;
+	public RectTransform imagenFlotante;
 
 	[Header("Configuración Idle")]
 	public float velocidadParpadeo = 2.0f;
 	public float alfaMinimo = 0.2f;
 	public float alfaMaximo = 1.0f;
+
+
+	[Header("Movimiento vertical imagen")]
+	public float amplitudFlotante = 10f;
+	public float velocidadFlotante = 1f;
 
 	[Header("Configuración Confirmación")]
 	public float velocidadEscala = 15.0f;
@@ -24,12 +30,20 @@ public class titlemenucontroller : MonoBehaviour {
 	public AudioClip sfxStart;
 
 	private bool haPresionadoStart = false;
+	private Vector2 posInicialFlotante;
+
+	void Start()
+	{
+		if (imagenFlotante != null)
+			posInicialFlotante = imagenFlotante.anchoredPosition;
+	}
 
 	void Update()
 	{
 		if (!haPresionadoStart)
 		{
 			AnimarIdle();
+			AnimarFlotante();
 
 			// Detectar botón Start
 			bool pressStart = Input.GetKeyDown(KeyCode.Return);
@@ -42,6 +56,14 @@ public class titlemenucontroller : MonoBehaviour {
 				StartCoroutine(SecuenciaInicio());
 			}
 		}
+	}
+
+	void AnimarFlotante()
+	{
+		if (imagenFlotante == null) return;
+
+		float offset = Mathf.Sin(Time.time * velocidadFlotante * Mathf.PI * 2f) * amplitudFlotante;
+		imagenFlotante.anchoredPosition = new Vector2(posInicialFlotante.x, posInicialFlotante.y + offset);
 	}
 
 	void AnimarIdle()

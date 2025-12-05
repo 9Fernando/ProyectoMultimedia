@@ -38,6 +38,7 @@ public class finalcinematic : MonoBehaviour {
 	public CanvasGroup canvasInferiorGroup;
 	public GameObject imagenAvisoLR;
 	public GameObject imagenAvisoTapa;
+	public GameObject canvasInferiorBorde;
 
 	[Header("Configuración Parpadeo")]
 	public float velocidadParpadeo = 2.0f;
@@ -51,6 +52,19 @@ public class finalcinematic : MonoBehaviour {
 	public UnityEngine.UI.Image botonVolverTitle; // imagen/botón dentro del canvas inferior
 	public float duracionFadeBoton = 1.0f;
 	public sparkledestroy sparkleDestroyScript;
+
+	[Header("Audio Música")]
+	public AudioSource audioMusica;
+	public AudioClip musicaBase;        // loop al empezar gameplay
+	public AudioClip musicaPiso2;       // cuando se rompe el piso 2
+	public AudioClip musicaVictoria;    // cuando aparece texto de victoria
+
+	[Header("Audio FX")]
+	public AudioSource audioFx;
+	public AudioClip sfxUnoyDos;          // por cada L+R
+	public AudioClip sfxTres; // al final de la animacion
+	public AudioClip sfxFin; // enganchar la espada
+
 
 	// Variables internas
 	private bool esperandoInput = false;
@@ -66,6 +80,13 @@ public class finalcinematic : MonoBehaviour {
 		if (upperCamCinematic != null) upperCamCinematic.enabled = false;
 		if (upperCamGameplay != null) upperCamGameplay.enabled = true;
 		if (audioSource != null) audioSource.ignoreListenerPause = true;
+
+		if (audioMusica != null && musicaBase != null)
+		{
+			audioMusica.clip = musicaBase;
+			audioMusica.loop = true;
+			audioMusica.Play();
+		}
 	}
 
 	public void StartCinematic()
@@ -153,11 +174,10 @@ public class finalcinematic : MonoBehaviour {
 	{
 
 		// Saltar directamente al Ascenso
-		if (Input.GetKeyDown(KeyCode.X))
-		{
-			print("DEBUG: Saltando a Cinemática de Ascenso");
-			StartCinematic();
-		}
+		//if (Input.GetKeyDown(KeyCode.X))
+		//{
+		//	StartCinematic();
+		//}
 
 		if (Input.GetKeyDown(KeyCode.Y))
 		{
@@ -188,23 +208,33 @@ public class finalcinematic : MonoBehaviour {
 	{
 		playerAnimator.SetFloat("VelocidadEspada", 0f);
 		esperandoInput = true;
-		print("Pausa QTE. Esperando L+R");
 		ActivarParpadeo(imagenAvisoLR);
 	}
 
 	// Llamado al pulsar L+R
 	public void ContinuarAnimacion()
 	{
+		audioFx.clip = sfxUnoyDos;
+		audioFx.Play();
 		playerAnimator.SetFloat("VelocidadEspada", 1f);
 		esperandoInput = false;
 		etapaQTE++;
 		DetenerParpadeo();
+
+		if (etapaQTE == 3)
+		{
+			audioFx.clip = sfxTres;
+			audioFx.Play();
+		}
 	}
+		
 		
 	// Se ejecutará cuando termine toda la animación de la espada tras el último input
 	public void EventoFinAnimacion()
 	{
-		print("Animación Espada Terminada. Iniciando Caída.");
+		audioFx.clip = sfxFin;
+		audioFx.Play();
+
 		IniciarCaidaHaciaTorre();
 	}
 
@@ -233,7 +263,6 @@ public class finalcinematic : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 
 		// --- Caída Infinita ---
-		print("Corte a Caída Infinita");
 
 		// Apagar cámara actual
 		upperCamCinematic.enabled = false;
@@ -251,8 +280,8 @@ public class finalcinematic : MonoBehaviour {
 
 		// --- Esperar Tapa ---
 		esperandoCierreTapa = true;
-		print("¡CIERRA LA TAPA AHORA!");
 		ActivarParpadeo(imagenAvisoTapa);
+
 	}
 
 	private IEnumerator AnimarParpadeoGradual(GameObject objetoConImagen)
@@ -309,9 +338,7 @@ public class finalcinematic : MonoBehaviour {
 			if (pauseStatus == true) // Cerrando
 			{
 				haCerradoTapa = true;
-				if (audioSource != null) {
-					audioSource.PlayOneShot(sonidoFinal);
-				}
+
 			}
 			else if (pauseStatus == false) // Se ha reanudado (Tapa abierta)
 			{
@@ -319,6 +346,9 @@ public class finalcinematic : MonoBehaviour {
 				{
 					DetenerParpadeo();
 					esperandoCierreTapa = false;
+					if (audioSource != null) {
+						audioSource.PlayOneShot(sonidoFinal);
+					}
 					StartCoroutine(SecuenciaImagenYFinal());
 				}
 			}
@@ -331,10 +361,15 @@ public class finalcinematic : MonoBehaviour {
 		if (setCaidaFake != null) setCaidaFake.SetActive(false);
 		if (camaraCaidaLateral != null) camaraCaidaLateral.enabled = false;
 
+		// Parar música actual
+		if (audioMusica != null)
+			audioMusica.Stop();
+
 		// Volver a encender la cámara cinemática para el final
 		upperCamCinematic.enabled = true;
 
 		if (canvasInferiorAscenso != null) canvasInferiorAscenso.SetActive(false);
+		if (canvasInferiorBorde != null) canvasInferiorBorde.SetActive(false);
 
 		// Mostrar Imágenes en ambas pantallas
 		if (imagenPantallaSuperior != null) imagenPantallaSuperior.SetActive(true);
@@ -381,8 +416,6 @@ public class finalcinematic : MonoBehaviour {
 		float velocidadHundimiento = 5.0f;
 		float alturaObjetivo = -45f;
 
-		print("Torre hundiéndose...");
-
 		while (torreEntera.transform.position.y > alturaObjetivo)
 		{
 			torreEntera.transform.Translate(Vector3.down * velocidadHundimiento * Time.deltaTime, Space.World);
@@ -401,7 +434,6 @@ public class finalcinematic : MonoBehaviour {
 		StartCoroutine(MostrarUIFinal());
 		StartCoroutine(FadeInBotonFinal());
 
-		print("FIN DEL JUEGO");
 	}
 
 	IEnumerator MostrarUIFinal()
@@ -425,7 +457,16 @@ public class finalcinematic : MonoBehaviour {
 			yield return null;
 		}
 
+		// Música de victoria
+		if (audioMusica != null && musicaVictoria != null)
+		{
+			audioMusica.clip = musicaVictoria;
+			audioMusica.loop = false;
+			audioMusica.Play();
+		}
+
 		if (canvasSuperiorGroup != null) canvasSuperiorGroup.alpha = 1f;
+
 	}
 
 	IEnumerator FadeInBotonFinal()
@@ -463,6 +504,15 @@ public class finalcinematic : MonoBehaviour {
 	public void VolverAlTitulo()
 	{
 		SceneManager.LoadScene("titlescreen");
+	}
+
+	public void CambiarMusicaPiso2()
+	{
+		if (audioMusica != null && musicaPiso2 != null)
+		{
+			audioMusica.clip = musicaPiso2;
+			audioMusica.Play();
+		}
 	}
 
 

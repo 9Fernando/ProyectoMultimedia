@@ -182,7 +182,7 @@ public class introcontroller : MonoBehaviour {
 		int longitud = fraseActualCompleta.Length;
 		float t = 0f;
 		int indice = 0;
-		//int letrasDesdeUltimoSonido = 0;
+		int letrasDesdeUltimoSonido = 0;
 
 		while (indice < longitud)
 		{
@@ -191,20 +191,20 @@ public class introcontroller : MonoBehaviour {
 
 			if (nuevoIndice != indice)
 			{
-				//int anterior = indice;
+				int anterior = indice;
 				indice = Mathf.Clamp(nuevoIndice, 0, longitud);
 				textoDialogo.text = fraseActualCompleta.Substring(0, indice);
 
-				//letrasDesdeUltimoSonido += (indice - anterior);
+				letrasDesdeUltimoSonido += (indice - anterior);
 
 				// SFX por letra
-				//if (letrasDesdeUltimoSonido >= 4)
-				//{
-				//	if (audioSourceIntro != null && sfxLetra != null) {
-				//		audioSourceIntro.PlayOneShot (sfxLetra);
-				//		letrasDesdeUltimoSonido = 0;
-				//	}
-				//}
+				if (letrasDesdeUltimoSonido >= 4)
+				{
+					if (audioSourceIntro != null && sfxLetra != null) {
+						audiomanager.Instance.PlaySFX(sfxLetra);
+						letrasDesdeUltimoSonido = 0;
+					}
+				}
 			}
 
 			yield return null;

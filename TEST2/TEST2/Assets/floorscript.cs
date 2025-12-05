@@ -20,6 +20,14 @@ public class floorscript : MonoBehaviour
 	public float newMinHeight = 0f;
 	public float newMaxHeight = 5f;
 
+	[Header("Configuración Especial")]
+	public bool esPiso2 = false;
+
+	public AudioSource audioFx;
+	public AudioClip sfxApoyoPlataforma;
+
+	public finalcinematic cinematicRefParaMusica; 
+
 	private bool baseDestruida = false;
 
 	private void Update()
@@ -41,6 +49,20 @@ public class floorscript : MonoBehaviour
 		{
 			baseDelPiso.SetActive(false);
 			baseDestruida = true;
+
+			if (audioFx != null && sfxApoyoPlataforma != null)
+				audioFx.PlayOneShot(sfxApoyoPlataforma);
+
+			// CAMBIO DE MÚSICA
+			if (esPiso2)
+			{
+
+				if (cinematicRefParaMusica != null)
+				{
+					cinematicRefParaMusica.CambiarMusicaPiso2();
+				}
+
+			}
 
 			if (playerOrbitScript != null)
 			{

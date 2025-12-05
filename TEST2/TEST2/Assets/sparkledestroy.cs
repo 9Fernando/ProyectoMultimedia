@@ -9,6 +9,9 @@ public class sparkledestroy : MonoBehaviour {
 	public float missileSpeed = 25f; // Velocidad del misil
 	public float maxMissileDistance = 100f; // Distancia máxima si no impacta nada
 	public float missileLifetime = 1.5f; // Vida máxima del misil
+	public AudioSource audioFx;
+	public AudioClip sfxMisil;
+	public AudioClip sfxApoyoPlataforma;
 
 	void Update()
 	{
@@ -34,6 +37,10 @@ public class sparkledestroy : MonoBehaviour {
 
 			// Siempre lanzamos misil
 			StartCoroutine(DispararMisil(objetivo, destino));
+
+			if (audioFx != null && sfxMisil != null)
+				audiomanager.Instance.PlaySFX(sfxMisil);
+
 		}
 	}
 
@@ -63,9 +70,11 @@ public class sparkledestroy : MonoBehaviour {
 		}
 
 		// Si había sparkle, lo destruimos al final del recorrido
-		if (objetivo != null)
-			objetivo.DestroySparkle();
-
+		if (objetivo != null) {
+			if (audioFx != null && sfxApoyoPlataforma != null)
+				audiomanager.Instance.PlaySFX(sfxApoyoPlataforma);
+			objetivo.DestroySparkle ();
+		}
 		if (misil != null)
 			Destroy(misil);
 	}
