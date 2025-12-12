@@ -43,7 +43,7 @@ public class audiomanager : MonoBehaviour {
 		}
 	}
 
-	public void PlaySFX(AudioClip clip, float volumen = 0.15f)
+	public void PlaySFX(AudioClip clip, float volumen = 1f)
 	{
 		if (clip == null) return;
 
